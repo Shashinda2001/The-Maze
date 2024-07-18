@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour {
     public float interactionRange = 2.0f; // Distance within which the player can interact
     public LayerMask interactableLayer; // Layer for interactable objects
-    public string interactableTag = "Destructible";
+     
+    public GameObject destroyedVersion; // Reference to the shattered version of the object
+    public GameObject gif; // Reference to the shattered version of the object
     void Update()
     {
         // Check if the "E" key is pressed
@@ -17,16 +19,7 @@ public class PlayerInteraction : MonoBehaviour {
             {
                 // Interact with the object
                 InteractWithBox(hit.collider.gameObject);
-
-             //   if (hit.collider.CompareTag(interactableTag))
-             //   {
-             //       Destructible dest = hit.collider.GetComponent<Destructible>();
-               //     if (dest != null)
-               //     {
-                        // Interact with the destructible object by calling the open method
-               //         dest.opened();
-               //     }
-             //   }
+ 
                     
             }
             else
@@ -41,6 +34,13 @@ public class PlayerInteraction : MonoBehaviour {
         
         // Example interaction logic (you can customize this)
         Debug.Log("Interacted with: " + box.name);
+        Instantiate(gif, box.transform.position,box. transform.rotation);
+        // Spawn a shattered object
+        Instantiate(destroyedVersion,box. transform.position,box. transform.rotation);
+       
+        // Remove the current object
+        Destroy(box);
+
         // Perform any action you want here, such as opening the box, picking it up, etc.
     }
 }
