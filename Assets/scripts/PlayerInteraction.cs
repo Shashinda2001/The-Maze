@@ -8,6 +8,7 @@ public class PlayerInteraction : MonoBehaviour {
      
     public GameObject destroyedVersion; // Reference to the shattered version of the object
     public GameObject gif; // Reference to the shattered version of the object
+    public GameObject trap;
     void Update()
     {
         // Check if the "E" key is pressed
@@ -34,7 +35,18 @@ public class PlayerInteraction : MonoBehaviour {
         
         // Example interaction logic (you can customize this)
         Debug.Log("Interacted with: " + box.name);
-        Instantiate(gif, box.transform.position,box. transform.rotation);
+
+        if (box.name == "gifbombbox")
+        {
+            Instantiate(gif, box.transform.position, box.transform.rotation);
+        }
+
+        if (box.name == "trapbox")
+        {
+            Instantiate(trap, box.transform.position, box.transform.rotation);
+        }
+
+
         // Spawn a shattered object
         Instantiate(destroyedVersion,box. transform.position,box. transform.rotation);
        
