@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteraction : MonoBehaviour {
     public float interactionRange = 2.0f; // Distance within which the player can interact
@@ -12,6 +13,44 @@ public class PlayerInteraction : MonoBehaviour {
 
     public GameObject explode;
     public GameObject powerGain;
+
+    public grenadeThrow grenadeThrowScript;
+
+    bool life = true;
+    public float lap;
+    public GameObject burn;
+    void Start()
+    {
+        // Find the parent object of the main camera
+        GameObject cameraParent = GameObject.Find("player"); // Replace with the actual parent object's name
+        if (cameraParent != null)
+        {
+            // Find the main camera within the parent object
+            Camera mainCamera = cameraParent.GetComponentInChildren<Camera>();
+            if (mainCamera != null)
+            {
+                Debug.Log("Main camera found!");
+                grenadeThrowScript = mainCamera.GetComponent<grenadeThrow>();
+                if (grenadeThrowScript != null)
+                {
+                    Debug.Log("grenadeThrow script successfully found on the main camera.");
+                }
+                else
+                {
+                    Debug.LogError("grenadeThrow script not found on the main camera!");
+                }
+            }
+            else
+            {
+                Debug.LogError("Main camera not found as a child of the parent object!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Parent object not found!");
+        }
+    }
+
     void Update()
     {
         // Check if the "E" key is pressed
@@ -56,6 +95,8 @@ public class PlayerInteraction : MonoBehaviour {
 
             GameObject power = Instantiate(powerGain, transform.position,transform.rotation);
             Destroy(power, 2f);
+            //increase bomb count
+            IncreaseBombCount(1);
         }
 
         if (box.name == "trapbox")
@@ -73,13 +114,41 @@ public class PlayerInteraction : MonoBehaviour {
             GameObject exp= Instantiate(explode, newPosition, box.transform.rotation);
             Destroy(exp,2f);
 
+            life = false;
+            GameObject deadFire = Instantiate(burn, transform.position, transform.rotation);
+            Destroy(deadFire, 3f);
+
             // Remove the current object
-           
+
         }
 
 
-      
+        if (!life)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            life = true;
+            StartCoroutine(LoadSceneAfterDelay(lap));
+        }
 
         // Perform any action you want here, such as opening the box, picking it up, etc.
+    }
+
+    public void IncreaseBombCount(float amount)
+    {
+        if (grenadeThrowScript != null)
+        {
+            grenadeThrowScript.bombCount += amount;
+            Debug.Log("Bomb count increased to: " + grenadeThrowScript.bombCount);
+        }
+        else
+        {
+            Debug.LogError("GrenadeThrow script not found!");
+        }
+    }
+
+    private IEnumerator LoadSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(1);
     }
 }
