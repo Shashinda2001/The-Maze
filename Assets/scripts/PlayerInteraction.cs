@@ -70,6 +70,19 @@ public class PlayerInteraction : MonoBehaviour {
                 Debug.Log("No interactable object found within range.");
             }
         }
+
+        // Perform a spherecast from the player's position
+        RaycastHit burned;
+        if (Physics.SphereCast(transform.position, 0.5f, transform.forward, out burned, interactionRange, interactableLayer))
+        {
+            // Interact with the object
+            InteractWithfireTtap(burned.collider.gameObject);
+
+
+        }
+        
+
+
     }
 
     void InteractWithBox(GameObject box)
@@ -131,6 +144,25 @@ public class PlayerInteraction : MonoBehaviour {
         }
 
         // Perform any action you want here, such as opening the box, picking it up, etc.
+    }
+
+    void  InteractWithfireTtap(GameObject trap)
+    {
+      //  Debug.Log("Interacted with: " + trap.name);
+
+        if (trap.name == "firePlate(Clone)")
+        {
+            Debug.Log("fire fire");
+            life = false;
+        }
+
+        if (!life)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            life = true;
+            StartCoroutine(LoadSceneAfterDelay(lap));
+        }
+
     }
 
     public void IncreaseBombCount(float amount)

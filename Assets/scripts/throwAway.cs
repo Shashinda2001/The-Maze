@@ -6,11 +6,11 @@ public class throwAway : MonoBehaviour
 {
     public GameObject throwPlate;
     
-    bool throws =false;
+    
     // Start is called before the first frame update
     void Start()
     {
-       
+         
     }
 
     // Update is called once per frame
@@ -22,18 +22,21 @@ public class throwAway : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "player")
-        {
-            Destroy(gameObject);
-        }
+       
         Debug.Log("got you");
-        if (!throws)
-        {
+        
+        
+
+            Debug.Log("drop");
             Vector3 newPosition = transform.position;
             newPosition.y +=5f; // Adjust the value as needed
-            Instantiate(throwPlate, newPosition, transform.rotation);
-            throws = true;
-        }
+            newPosition.z += 10f; // Adjust the value as needed
+          GameObject deadFire= Instantiate(throwPlate, newPosition, transform.rotation);
+            Destroy(gameObject);
+            Destroy(deadFire, 3f);
+         
+           
+        
       
         // Increase the y-coordinate to move the position up
       
