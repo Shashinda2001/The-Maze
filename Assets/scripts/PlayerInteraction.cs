@@ -44,6 +44,12 @@ public class PlayerInteraction : MonoBehaviour {
 
             // Instantiate the trap at the new position
             Instantiate(gif, newPosition, box.transform.rotation);
+
+            // Spawn a shattered object
+            Instantiate(destroyedVersion, box.transform.position, box.transform.rotation);
+
+            // Remove the current object
+            Destroy(box);
         }
 
         if (box.name == "trapbox")
@@ -54,14 +60,16 @@ public class PlayerInteraction : MonoBehaviour {
 
             // Instantiate the trap at the new position
             Instantiate(trap, newPosition, box.transform.rotation);
+
+            // Spawn a shattered object
+            Instantiate(destroyedVersion, box.transform.position, box.transform.rotation);
+
+            // Remove the current object
+            Destroy(box);
         }
 
 
-        // Spawn a shattered object
-        Instantiate(destroyedVersion,box. transform.position,box. transform.rotation);
-       
-        // Remove the current object
-        Destroy(box);
+      
 
         // Perform any action you want here, such as opening the box, picking it up, etc.
     }
