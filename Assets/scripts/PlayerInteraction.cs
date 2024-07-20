@@ -11,6 +11,7 @@ public class PlayerInteraction : MonoBehaviour {
     public GameObject trap;
 
     public GameObject explode;
+    public GameObject powerGain;
     void Update()
     {
         // Check if the "E" key is pressed
@@ -42,23 +43,26 @@ public class PlayerInteraction : MonoBehaviour {
         {
             Vector3 newPosition = box.transform.position;
             // Increase the y-coordinate to move the position up
-            newPosition.y += 3f; // Adjust the value as needed
+            newPosition.y += 2f; // Adjust the value as needed
 
             // Instantiate the trap at the new position
-            Instantiate(gif, newPosition, box.transform.rotation);
-
+            GameObject gg = Instantiate(gif, newPosition, box.transform.rotation);
+            Destroy(box);
             // Spawn a shattered object
             Instantiate(destroyedVersion, box.transform.position, box.transform.rotation);
-
+            Destroy(gg, 2f);
             // Remove the current object
-            Destroy(box);
+          
+
+            GameObject power = Instantiate(powerGain, transform.position,transform.rotation);
+            Destroy(power, 2f);
         }
 
         if (box.name == "trapbox")
         {
             Vector3 newPosition = box.transform.position;
             // Increase the y-coordinate to move the position up
-            newPosition.y += 3f; // Adjust the value as needed
+            newPosition.y += 2f; // Adjust the value as needed
 
             // Instantiate the trap at the new position
             GameObject dmt = Instantiate(trap, newPosition, box.transform.rotation);
