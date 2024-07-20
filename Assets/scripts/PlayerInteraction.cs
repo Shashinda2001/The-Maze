@@ -38,12 +38,22 @@ public class PlayerInteraction : MonoBehaviour {
 
         if (box.name == "gifbombbox")
         {
-            Instantiate(gif, box.transform.position, box.transform.rotation);
+            Vector3 newPosition = box.transform.position;
+            // Increase the y-coordinate to move the position up
+            newPosition.y += 3f; // Adjust the value as needed
+
+            // Instantiate the trap at the new position
+            Instantiate(gif, newPosition, box.transform.rotation);
         }
 
         if (box.name == "trapbox")
         {
-            Instantiate(trap, box.transform.position, box.transform.rotation);
+            Vector3 newPosition = box.transform.position;
+            // Increase the y-coordinate to move the position up
+            newPosition.y += 3f; // Adjust the value as needed
+
+            // Instantiate the trap at the new position
+            Instantiate(trap, newPosition, box.transform.rotation);
         }
 
 
