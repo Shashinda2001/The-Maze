@@ -9,6 +9,8 @@ public class PlayerInteraction : MonoBehaviour {
     public GameObject destroyedVersion; // Reference to the shattered version of the object
     public GameObject gif; // Reference to the shattered version of the object
     public GameObject trap;
+
+    public GameObject explode;
     void Update()
     {
         // Check if the "E" key is pressed
@@ -59,13 +61,16 @@ public class PlayerInteraction : MonoBehaviour {
             newPosition.y += 3f; // Adjust the value as needed
 
             // Instantiate the trap at the new position
-            Instantiate(trap, newPosition, box.transform.rotation);
-
+            GameObject dmt = Instantiate(trap, newPosition, box.transform.rotation);
+            Destroy(box);
             // Spawn a shattered object
             Instantiate(destroyedVersion, box.transform.position, box.transform.rotation);
+            Destroy(dmt,0.5f);
+            GameObject exp= Instantiate(explode, newPosition, box.transform.rotation);
+            Destroy(exp,2f);
 
             // Remove the current object
-            Destroy(box);
+           
         }
 
 
