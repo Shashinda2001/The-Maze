@@ -7950,6 +7950,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   jumpHeight: 3
+  lowBoundary: -3
 --- !u!143 &496897244
 CharacterController:
   m_ObjectHideFlags: 0

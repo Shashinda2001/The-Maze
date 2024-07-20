@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
     public float jumpHeight = 3f;
+    public float lowBoundary;
+    
+
+    bool life = true;
 
     void Start()
     {
@@ -67,6 +72,17 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Debug.LogWarning("CharacterController is not enabled or not assigned.");
+        }
+
+        if (transform.position.y < lowBoundary)
+        {
+            life = false;
+        }
+
+        if (!life)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(1);
         }
     }
 }
