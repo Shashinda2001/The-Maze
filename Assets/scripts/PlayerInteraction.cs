@@ -19,6 +19,13 @@ public class PlayerInteraction : MonoBehaviour {
     bool life = true;
     public float lap;
     public GameObject burn;
+
+    public GameObject pressE;
+    
+    
+
+    public GameObject openUI;
+    public GameObject plusBomb;
     void Start()
     {
         // Find the parent object of the main camera
@@ -49,6 +56,8 @@ public class PlayerInteraction : MonoBehaviour {
         {
             Debug.LogError("Parent object not found!");
         }
+        GameObject open = Instantiate(openUI, transform.position,transform.rotation);
+        Destroy(open, 5f);
     }
 
     void Update()
@@ -100,6 +109,9 @@ public class PlayerInteraction : MonoBehaviour {
             // Instantiate the trap at the new position
             GameObject gg = Instantiate(gif, newPosition, box.transform.rotation);
             Destroy(box);
+
+            GameObject showBomb = Instantiate(plusBomb, transform.position, transform.rotation);
+            Destroy(showBomb, 4f);
             // Spawn a shattered object
             Instantiate(destroyedVersion, box.transform.position, box.transform.rotation);
             Destroy(gg, 2f);
@@ -110,6 +122,7 @@ public class PlayerInteraction : MonoBehaviour {
             Destroy(power, 2f);
             //increase bomb count
             IncreaseBombCount(1);
+           
         }
 
         if (box.name == "trapbox")
@@ -135,8 +148,10 @@ public class PlayerInteraction : MonoBehaviour {
 
         }
 
+        
 
-        if (!life)
+
+            if (!life)
         {
             Cursor.lockState = CursorLockMode.None;
             life = true;
@@ -148,12 +163,22 @@ public class PlayerInteraction : MonoBehaviour {
 
     void  InteractWithfireTtap(GameObject trap)
     {
-      //  Debug.Log("Interacted with: " + trap.name);
+        Debug.Log("Interacted with: " + trap.name);
 
         if (trap.name == "firePlate(Clone)")
         {
             Debug.Log("fire fire");
             life = false;
+        }
+        if((trap.name == "trapbox" || trap.name == "gifbombbox")  )
+        {
+            GameObject hitplate= Instantiate(pressE, transform.position,transform.rotation);
+            
+            Destroy(hitplate,0.2f);
+        }
+        if (trap.name == "P1lost")
+        {
+            Debug.Log("paint detect");
         }
 
         if (!life)
@@ -183,4 +208,23 @@ public class PlayerInteraction : MonoBehaviour {
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(1);
     }
-}
+
+    private void OnTriggerStay(Collider other)
+    {
+        // Check if the collided object has the tag "paint1p2"
+        if (other.gameObject.CompareTag("trapflame"))
+        {
+            Debug.Log("Burnning.......... ");
+            life = false;
+        }
+
+        if (!life)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            life = true;
+            StartCoroutine(LoadSceneAfterDelay(lap));
+        }
+    }
+
+
+        }

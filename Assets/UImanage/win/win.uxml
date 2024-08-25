@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/css/win-buttons.uss?fileID=7433441132597879392&amp;guid=3375d3e23632a2e4fa78d4264bc30814&amp;type=3#win-buttons" />
+    <ui:VisualElement name="display" style="width: 100%; height: 100%; background-color: rgb(192, 57, 57); background-image: url(&apos;project://database/Assets/Fantasy%20Skybox%20FREE/Cubemaps/FS003/Images/FS003_Sunrise_Cubemap_left.png?fileID=2800000&amp;guid=fe6393c04bf937a4aad6c22ba34b3c7d&amp;type=3#FS003_Sunrise_Cubemap_left&apos;); -unity-background-image-tint-color: rgb(255, 255, 255); -unity-background-scale-mode: scale-and-crop; align-items: center; justify-content: flex-start; -unity-text-align: middle-left;">
+        <ui:VisualElement name="victory" style="width: 70%; height: 20%; background-color: rgba(137, 192, 113, 0); border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; -unity-text-align: middle-center; margin-top: 99px;">
+            <ui:Label text="You Win!!" display-tooltip-when-elided="true" name="youwin" class="youwintext" />
+        </ui:VisualElement>
+        <ui:VisualElement name="body" style="width: 100%; height: 50%; background-color: rgba(131, 195, 132, 0); border-top-left-radius: 50px; border-bottom-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; align-items: center; justify-content: flex-start; -unity-text-align: upper-left;">
+            <ui:VisualElement name="textb" style="height: 20%; width: 90%; background-color: rgba(163, 21, 21, 0); border-top-width: 0; border-left-color: rgb(18, 19, 18); border-right-color: rgb(18, 19, 18); border-top-color: rgb(18, 19, 18); border-bottom-color: rgb(18, 19, 18);" />
+            <ui:VisualElement name="buttonbody" style="width: 90%; height: 60%; background-color: rgba(192, 110, 110, 0); justify-content: space-around; align-items: flex-start;">
+                <ui:Button text="continue" display-tooltip-when-elided="true" name="continue" class="button-class" />
+                <ui:Button text="play again" display-tooltip-when-elided="true" name="play-again" class="button-class" style="width: 20%;" />
+                <ui:Button text="exit" display-tooltip-when-elided="true" name="exit" class="button-class" style="width: 20%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

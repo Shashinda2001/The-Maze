@@ -7,6 +7,12 @@ TagManager:
   - Ground
   - Interactable
   - Destructible
+  - paint1p2
+  - puzzle1
+  - puzzle2
+  - paint2p1
+  - paint2p2
+  - trapflame
   layers:
   - Default
   - TransparentFX
@@ -17,7 +23,7 @@ TagManager:
   - Ground
   - Interactable
   - 
-  - 
+  - glow
   - 
   - 
   - 

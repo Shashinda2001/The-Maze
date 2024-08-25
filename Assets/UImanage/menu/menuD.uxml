@@ -1,0 +1,48 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/css/menu-style-btn.uss?fileID=7433441132597879392&amp;guid=4e40d6accab7ee14fb2a2eaef181c568&amp;type=3#menu-style-btn" />
+    <ui:VisualElement name="display" style="width: 100%; height: 100%; background-color: rgba(45, 67, 48, 0.67); align-items: center; justify-content: space-between;">
+        <ui:VisualElement name="title" style="width: 100%; height: 20%; margin-top: 0; align-items: center; justify-content: flex-end;">
+            <ui:Label text="The Maze" display-tooltip-when-elided="true" name="name" style="width: 80%; height: 100%; font-size: 120px; -unity-font-definition: url(&apos;project://database/Assets/fragFont/vtc/vtcsupermarkets.asset?fileID=11400000&amp;guid=402a4d89299d30148b8f451883fe3949&amp;type=2#vtcsupermarkets&apos;); -unity-text-align: lower-center; -unity-text-outline-color: rgb(48, 41, 41); color: rgb(115, 91, 91); -unity-text-outline-width: 1px; text-shadow: 5px 1px 0 rgb(243, 243, 243);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="menu" style="width: 100%; height: 30%; background-color: rgba(192, 82, 82, 0); align-items: flex-start; justify-content: space-around;">
+            <ui:Button text="New Game" display-tooltip-when-elided="true" name="play" class="menu-btn" />
+            <ui:Button text="Options" display-tooltip-when-elided="true" name="options" class="menu-btn" />
+            <ui:Button text="Credits" display-tooltip-when-elided="true" name="credit" class="menu-btn" />
+            <ui:Button text="Quit" display-tooltip-when-elided="true" name="exit" class="menu-btn" />
+            <ui:VisualElement name="controls" style="position: absolute; width: 50%; height: 100%; margin-left: 0; margin-right: auto; top: 0; left: 500px; background-color: rgba(84, 79, 85, 0.41); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgb(14, 12, 12); border-right-color: rgb(14, 12, 12); border-top-color: rgb(14, 12, 12); border-bottom-color: rgb(14, 12, 12); flex-direction: row; display: none;">
+                <ui:VisualElement name="buttons" style="background-color: rgba(212, 41, 41, 0); width: 30%; height: 100%; justify-content: space-around;">
+                    <ui:Label text="forward" display-tooltip-when-elided="true" name="Label" class="option-col1" />
+                    <ui:Label text=" left" display-tooltip-when-elided="true" name="Label" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                    <ui:Label text=" backward" display-tooltip-when-elided="true" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                    <ui:Label text="right" display-tooltip-when-elided="true" name="Label" enable-rich-text="false" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                    <ui:Label text="Camera Control" display-tooltip-when-elided="true" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                    <ui:Label text=" Jumping" display-tooltip-when-elided="true" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                    <ui:Label text="Interacting" display-tooltip-when-elided="true" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                    <ui:Label text="Attacking" display-tooltip-when-elided="true" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="buttons" style="background-color: rgba(212, 41, 41, 0); width: 50%; height: 100%; justify-content: space-around;">
+                    <ui:Label text="W" display-tooltip-when-elided="true" name="Label" class="option-col1" />
+                    <ui:Label text="D" display-tooltip-when-elided="true" name="Label" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                    <ui:Label text="S" display-tooltip-when-elided="true" name="Label" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                    <ui:Label text="A" display-tooltip-when-elided="true" name="Label" enable-rich-text="false" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                    <ui:Label text="Mouse" display-tooltip-when-elided="true" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                    <ui:Label text="SPACE" display-tooltip-when-elided="true" name="Label" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                    <ui:Label text="E" display-tooltip-when-elided="true" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                    <ui:Label text="Right Mouse Button" display-tooltip-when-elided="true" name="Label" class="option-col1" style="width: 100%; height: 10%; background-color: rgba(178, 166, 49, 0);" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="info" style="position: absolute; width: 50%; height: 100%; margin-left: 0; margin-right: auto; top: 0; left: 500px; background-color: rgba(111, 93, 107, 0.42); display: flex; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgb(17, 17, 17); border-right-color: rgb(17, 17, 17); border-top-color: rgb(17, 17, 17); border-bottom-color: rgb(17, 17, 17); align-items: center;">
+                <ui:Label text="Created by Shashinda Adithya&#10;&#10;Game Design &amp; Concept: Developed the core gameplay mechanics and vision.&#10;Programming &amp; Development: Handled all gameplay systems using Unity.&#10;Art &amp; Assets: Integrated free Unity assets for visuals.&#10;UI/UX Design: Designed and implemented the user interface.&#10;Sound &amp; Music: Added free sound effects and music." display-tooltip-when-elided="true" name="Label" class="option-col1" style="height: 100%; -unity-paragraph-spacing: 30px; -unity-text-align: middle-left; width: 80%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="v" style="width: 100%; height: 5%; background-color: rgba(51, 66, 144, 0); align-items: flex-start; justify-content: flex-start; flex-direction: row; margin-bottom: 8px;">
+            <ui:Label text="Created by Shashinda" display-tooltip-when-elided="true" name="owner" style="-unity-font-definition: url(&apos;project://database/Assets/fragFont/vtc/vtcsupermarkets.asset?fileID=11400000&amp;guid=402a4d89299d30148b8f451883fe3949&amp;type=2#vtcsupermarkets&apos;); color: rgb(255, 255, 255); -unity-font-style: normal; -unity-text-outline-width: 0.5px; -unity-text-outline-color: rgb(0, 0, 0); word-spacing: 2px; letter-spacing: 1px; width: 25%; height: 100%; justify-content: center; -unity-text-align: middle-left; align-items: center;" />
+            <ui:VisualElement name="git" class="linkstyles" />
+            <ui:VisualElement name="linkdin" style="width: 25%; height: 100%; background-color: rgba(112, 21, 212, 0); flex-direction: row;">
+                <ui:Button display-tooltip-when-elided="true" name="linkedin" class="linkbutton" style="background-image: url(&apos;project://database/Assets/img/icons/linkedin.256x256.png?fileID=2800000&amp;guid=9032e5be1b48cc1418478cf04cf2906c&amp;type=3#linkedin.256x256&apos;);" />
+                <ui:Button text=" " display-tooltip-when-elided="true" name="ichi" class="linkbutton" style="background-image: url(&apos;project://database/Assets/img/icons/account.png?fileID=2800000&amp;guid=877831cbccebd6848aecc33d8e867847&amp;type=3#account&apos;);" />
+                <ui:Button display-tooltip-when-elided="true" name="gitnav" class="linkbutton" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,71 @@
+.menu-btn {
+    width: 20%;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 24px;
+    -unity-font-definition: url('project://database/Assets/fragFont/vtc/vtcsupermarkets.asset?fileID=11400000&guid=402a4d89299d30148b8f451883fe3949&type=2#vtcsupermarkets');
+    color: rgb(245, 239, 239);
+    background-color: rgba(116, 105, 128, 0.49);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    height: 13%;
+}
+
+.menu-btn:hover {
+    scale: 1.5 1;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-elastic;
+    transition-property: all;
+    transform-origin: left;
+    -unity-background-image-tint-color: rgba(81, 79, 85, 0);
+    background-color: rgb(37, 36, 38);
+}
+
+.linkstyles {
+    width: 10%;
+    height: 100%;
+    background-color: rgba(183, 54, 54, 0);
+    align-items: center;
+}
+
+.linkbutton {
+    height: auto;
+    width: 10%;
+    background-image: url('project://database/Assets/img/icons/git.256x256.png?fileID=2800000&guid=f0967861924f56749ab076ff188036b6&type=3#git.256x256');
+    background-color: rgba(188, 188, 188, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    margin-left: 22px;
+}
+
+.linkbutton:hover {
+    background-color: rgba(63, 77, 123, 255);
+    translate: 0 0;
+    scale: 1.2 1;
+    transition-timing-function: ease-in-out-circ;
+    transition-duration: 0.5s;
+}
+
+.option-col1 {
+    width: 100%;
+    height: 10%;
+    background-color: rgba(178, 166, 49, 0);
+    -unity-font-definition: url('project://database/Assets/fragFont/vtc/vtcsupermarkets.asset?fileID=11400000&guid=402a4d89299d30148b8f451883fe3949&type=2#vtcsupermarkets');
+    font-size: 20px;
+    color: rgb(250, 244, 244);
+    -unity-text-outline-width: 0;
+    -unity-text-outline-color: rgb(26, 25, 25);
+    text-shadow: 1px 1px 0 rgb(0, 0, 0);
+    -unity-text-align: middle-center;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}

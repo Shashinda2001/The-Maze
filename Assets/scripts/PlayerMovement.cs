@@ -22,8 +22,16 @@ public class PlayerMovement : MonoBehaviour
 
     bool life = true;
 
+    public GameObject throwPlate;
+
+    public AudioClip audioClip; // The audio clip to be played
+    private AudioSource audioSource;
+    public float audioVolume = 0.5f;
+    public float audioPitch = 0.5f; // Adjust this value between 0.1 and 1.0 to set the pitch
+
     void Start()
     {
+       // Cursor.lockState = CursorLockMode.Locked;
         // Ensure the CharacterController component is assigned
         if (controller == null)
         {
@@ -35,6 +43,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("CharacterController component is not assigned.");
         }
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = audioClip;
+        audioSource.loop = true; // Ensure the audio loops if you want it to continue while holding the key 
+        audioSource.volume = audioVolume; // Set the initial volume
+        audioSource.pitch = audioPitch; // Set the initial pitch
     }
 
     void Update()
@@ -68,6 +81,22 @@ public class PlayerMovement : MonoBehaviour
             velocity.y -= gravity * Time.deltaTime;
 
             controller.Move(velocity * Time.deltaTime);
+
+            // Audio handling for movement
+            if (move != Vector3.zero)
+            {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.Play();
+                }
+            }
+            else
+            {
+                if (audioSource.isPlaying)
+                {
+                    audioSource.Stop();
+                }
+            }
         }
         else
         {

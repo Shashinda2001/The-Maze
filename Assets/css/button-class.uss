@@ -1,0 +1,106 @@
+.buuton-style {
+    background-color: rgb(61, 83, 173);
+    width: 202px;
+    justify-content: center;
+    align-items: center;
+    height: 74px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-left-color: rgb(84, 34, 66);
+    border-right-color: rgb(84, 34, 66);
+    border-top-color: rgb(84, 34, 66);
+    border-bottom-color: rgb(84, 34, 66);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    visibility: visible;
+    overflow: hidden;
+    -unity-text-align: middle-center;
+    -unity-font: url('project://database/Assets/TextMesh%20Pro/Examples%20&%20Extras/Fonts/Roboto-Bold.ttf?fileID=12800000&guid=4beb055f07aaff244873dec698d0363e&type=3#Roboto-Bold');
+    -unity-font-definition: url('project://database/Assets/Fonts/JazzCreateBubble%20SDF.asset?fileID=11400000&guid=0ddbd96dddcf60041b9a8dff5101457b&type=2#JazzCreateBubble SDF');
+    font-size: 70px;
+    padding-bottom: 10px;
+    margin-bottom: 80px;
+    text-shadow: 2px 3px 0 rgb(5, 5, 5);
+    -unity-font-style: normal;
+    -unity-text-outline-color: rgb(212, 21, 21);
+    background-image: url('project://database/Assets/Fantasy%20Skybox%20FREE/Panoramics/FS003/FS003_Night.png?fileID=2800000&guid=323f1ea1bce78fe4c90b2286fa1997e2&type=3#FS003_Night');
+    -unity-background-scale-mode: stretch-to-fill;
+    cursor: initial;
+    color: rgb(255, 255, 255);
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out-elastic;
+}
+
+.exist-button {
+    background-image: url('project://database/Assets/Fantasy%20Skybox%20FREE/Panoramics/FS003/FS003_Sunrise.png?fileID=2800000&guid=c15e36d3819e8d14ab21ab119e3fd4a7&type=3#FS003_Sunrise');
+    color: rgb(248, 248, 248);
+    text-shadow: 3px 2px 0 rgb(0, 0, 0);
+    font-size: 70px;
+}
+
+.buuton-style:hover {
+    scale: 1.2 1.2;
+}
+
+.buuton-style:active {
+    background-image: url('project://database/Assets/Fantasy%20Skybox%20FREE/Cubemaps/FS003/Images/FS003_Night_Cubemap_up.png?fileID=2800000&guid=31372d00a63455041a771057c560a152&type=3#FS003_Night_Cubemap_up');
+}
+
+.cross-button {
+    width: 120px;
+    height: 86px;
+    background-color: rgb(228, 234, 236);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    font-size: 70px;
+    -unity-font-style: bold;
+    -unity-font-definition: url('project://database/Assets/Fonts/JazzCreateBubble%20SDF.asset?fileID=11400000&guid=0ddbd96dddcf60041b9a8dff5101457b&type=2#JazzCreateBubble SDF');
+    color: rgb(255, 0, 0);
+    -unity-text-outline-color: rgb(26, 3, 3);
+    -unity-text-outline-width: 1px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.cross-button:hover {
+    scale: 1.2 1.2;
+    transition-duration: 0s;
+    transition-timing-function: ease-in-elastic;
+}
+
+.story-class {
+    display: flex;
+    position: absolute;
+    width: 1252px;
+    height: 790px;
+    background-color: rgb(250, 246, 246);
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 120px;
+    left: 320px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-left-color: rgb(241, 232, 232);
+    border-right-color: rgb(241, 232, 232);
+    border-top-color: rgb(241, 232, 232);
+    border-bottom-color: rgb(241, 232, 232);
+}
