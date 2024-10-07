@@ -9,6 +9,6 @@ public class playAgain : MonoBehaviour
     {
         Debug.Log("PRESSS");
         Cursor.lockState = CursorLockMode.Locked;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(3);
     }
 }

@@ -32,14 +32,14 @@ public class win : MonoBehaviour
 
     private void onPlay(ClickEvent evt)
     {
-        SceneManager.LoadScene(0); // Load scene 0
+        SceneManager.LoadScene(3); // Load scene 0
     }
 
 
 
     private void onExist(ClickEvent evt)
     {
-        SceneManager.LoadScene(3); // Load scene 3
+        SceneManager.LoadScene(0); // Load scene 3
     }
 
 

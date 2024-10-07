@@ -15,6 +15,7 @@ public class loose : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UnityEngine.Cursor.lockState = CursorLockMode.None;
         var root = GetComponent<UIDocument>().rootVisualElement;
 
          
@@ -32,14 +33,14 @@ public class loose : MonoBehaviour
 
     private void onPlay(ClickEvent evt)
     {
-        SceneManager.LoadScene(0); // Load scene 0
+        SceneManager.LoadScene(3); // Load scene 0
     }
 
      
 
     private void onExist(ClickEvent evt)
     {
-        SceneManager.LoadScene(3); // Load scene 3
+        SceneManager.LoadScene(0); // Load scene 3
     }
 
 

@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="body" style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); justify-content: flex-end; align-items: center;">
+        <ui:Label text="press E" display-tooltip-when-elided="true" name="pressE" style="width: 80%; height: 20%; background-color: rgba(120, 57, 57, 0); -unity-font-definition: url(&apos;project://database/Assets/fragFont/vtc/vtcsupermarkets.asset?fileID=11400000&amp;guid=402a4d89299d30148b8f451883fe3949&amp;type=2#vtcsupermarkets&apos;); font-size: 40px; color: rgba(243, 237, 237, 255); -unity-text-align: middle-center; text-shadow: 2px 1px 0 rgba(36, 32, 32, 255);" />
+    </ui:VisualElement>
+</ui:UXML>

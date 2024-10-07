@@ -1,24 +1,25 @@
 .button-class {
     width: 20%;
-    -unity-font-definition: url('project://database/Assets/Thaleah_PixelFont/Materials/ThaleahFat_TTF%20SDF.asset?fileID=11400000&guid=5a758dc843341b3458c4da0a817060ed&type=2#ThaleahFat_TTF SDF');
+    -unity-font-definition: url('project://database/Assets/fragFont/vtc/vtcsupermarkets.asset?fileID=11400000&guid=402a4d89299d30148b8f451883fe3949&type=2#vtcsupermarkets');
     font-size: 30px;
     color: rgb(217, 203, 203);
-    background-color: rgba(77, 47, 47, 0);
-    -unity-text-outline-width: 1px;
+    background-color: rgba(125, 85, 85, 0.49);
+    -unity-text-outline-width: 0;
     -unity-text-outline-color: rgb(55, 36, 36);
     background-image: none;
-    text-shadow: 1px 1px 0 rgb(231, 219, 219);
+    text-shadow: 2px 1px 0 rgb(51, 38, 38);
     border-left-color: rgb(229, 206, 206);
     border-right-color: rgb(229, 206, 206);
     border-top-color: rgb(229, 206, 206);
     border-bottom-color: rgb(229, 206, 206);
-    border-left-width: 3px;
-    border-right-width: 3px;
-    border-top-width: 3px;
-    border-bottom-width: 3px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
     margin-bottom: 15px;
     justify-content: space-between;
     align-items: center;
+    height: 8%;
 }
 
 .button-class:hover {

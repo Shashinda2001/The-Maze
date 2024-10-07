@@ -77,7 +77,7 @@ public class uicontroller : MonoBehaviour
 
     private void onPlay(ClickEvent evt)
     {
-        SceneManager.LoadScene(0); // Load scene 0
+        SceneManager.LoadScene(3); // Load scene 3
     }
 
     private void onCredit(ClickEvent evt)

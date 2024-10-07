@@ -1,0 +1,24 @@
+.main-btn {
+    width: 25%;
+    height: 8%;
+    -unity-font-definition: url('project://database/Assets/fragFont/vtc/vtcsupermarkets.asset?fileID=11400000&guid=402a4d89299d30148b8f451883fe3949&type=2#vtcsupermarkets');
+    color: rgb(212, 207, 207);
+    background-color: rgba(34, 28, 28, 0.54);
+    font-size: 28px;
+    text-shadow: 1px 0 0 rgb(241, 228, 228);
+    letter-spacing: 2px;
+    -unity-font-style: normal;
+    -unity-text-outline-color: rgba(0, 0, 0, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    margin-bottom: 20px;
+}
+
+.main-btn:hover {
+    background-color: rgba(60, 55, 55, 0.84);
+    scale: 1 1.2;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-cubic;
+}

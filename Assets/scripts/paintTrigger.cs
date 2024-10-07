@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class paintTrigger : MonoBehaviour
 {
-    bool paint2p1relic = false;
-    bool paint2p2relic = false;
+   public bool paint2p1relic = false;
+   public  bool paint2p2relic = false;
     bool door2 = false;
 
     public GameObject paintoneP2c1;
     public GameObject paintoneP2c2;
 
-    bool paint1p2relic = false;
+    public  bool paint1p2relic = false;
     bool door1 = false;
 
     public GameObject paintonePc1;

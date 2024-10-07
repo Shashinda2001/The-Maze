@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerInteraction : MonoBehaviour {
+public class PlayerInteraction : MonoBehaviour
+{
     public float interactionRange = 2.0f; // Distance within which the player can interact
     public LayerMask interactableLayer; // Layer for interactable objects
-     
+
     public GameObject destroyedVersion; // Reference to the shattered version of the object
     public GameObject gif; // Reference to the shattered version of the object
     public GameObject trap;
@@ -16,16 +17,18 @@ public class PlayerInteraction : MonoBehaviour {
 
     public grenadeThrow grenadeThrowScript;
 
-    bool life = true;
+    //bool life = true;
+    public float hart = 2f;
     public float lap;
     public GameObject burn;
 
     public GameObject pressE;
-    
-    
 
-    public GameObject openUI;
+     
     public GameObject plusBomb;
+
+    private bool isLosingHealth = false; // Flag to check if health is already decreasing
+
     void Start()
     {
         // Find the parent object of the main camera
@@ -56,8 +59,7 @@ public class PlayerInteraction : MonoBehaviour {
         {
             Debug.LogError("Parent object not found!");
         }
-        GameObject open = Instantiate(openUI, transform.position,transform.rotation);
-        Destroy(open, 5f);
+        
     }
 
     void Update()
@@ -71,8 +73,6 @@ public class PlayerInteraction : MonoBehaviour {
             {
                 // Interact with the object
                 InteractWithBox(hit.collider.gameObject);
- 
-                    
             }
             else
             {
@@ -86,17 +86,11 @@ public class PlayerInteraction : MonoBehaviour {
         {
             // Interact with the object
             InteractWithfireTtap(burned.collider.gameObject);
-
-
         }
-        
-
-
     }
 
     void InteractWithBox(GameObject box)
     {
-        
         // Example interaction logic (you can customize this)
         Debug.Log("Interacted with: " + box.name);
 
@@ -116,13 +110,11 @@ public class PlayerInteraction : MonoBehaviour {
             Instantiate(destroyedVersion, box.transform.position, box.transform.rotation);
             Destroy(gg, 2f);
             // Remove the current object
-          
 
-            GameObject power = Instantiate(powerGain, transform.position,transform.rotation);
+            GameObject power = Instantiate(powerGain, transform.position, transform.rotation);
             Destroy(power, 2f);
-            //increase bomb count
+            // Increase bomb count
             IncreaseBombCount(1);
-           
         }
 
         if (box.name == "trapbox")
@@ -136,58 +128,49 @@ public class PlayerInteraction : MonoBehaviour {
             Destroy(box);
             // Spawn a shattered object
             Instantiate(destroyedVersion, box.transform.position, box.transform.rotation);
-            Destroy(dmt,0.5f);
-            GameObject exp= Instantiate(explode, newPosition, box.transform.rotation);
-            Destroy(exp,2f);
-
-            life = false;
+            Destroy(dmt, 0.5f);
+            GameObject exp = Instantiate(explode, newPosition, box.transform.rotation);
+            Destroy(exp, 2f);
+            StartCoroutine(DecreaseHealthWithDelay(2f)); // Decrease health with a delay
             GameObject deadFire = Instantiate(burn, transform.position, transform.rotation);
             Destroy(deadFire, 3f);
 
-            // Remove the current object
-
-        }
-
-        
-
-
-            if (!life)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            life = true;
             StartCoroutine(LoadSceneAfterDelay(lap));
         }
 
-        // Perform any action you want here, such as opening the box, picking it up, etc.
+        if (hart <= 0f)
+        {
+            Cursor.lockState = CursorLockMode.None;
+          //  hart = 2f;
+            StartCoroutine(LoadSceneAfterDelay(lap));
+        }
     }
 
-    void  InteractWithfireTtap(GameObject trap)
+    void InteractWithfireTtap(GameObject trap)
     {
         Debug.Log("Interacted with: " + trap.name);
 
         if (trap.name == "firePlate(Clone)")
         {
             Debug.Log("fire fire");
-            life = false;
+            StartCoroutine(DecreaseHealthWithDelay(2f)); // Decrease health with a delay
         }
-        if((trap.name == "trapbox" || trap.name == "gifbombbox")  )
+        if (trap.name == "trapbox" || trap.name == "gifbombbox")
         {
-            GameObject hitplate= Instantiate(pressE, transform.position,transform.rotation);
-            
-            Destroy(hitplate,0.2f);
+            GameObject hitplate = Instantiate(pressE, transform.position, transform.rotation);
+            Destroy(hitplate, 0.2f);
         }
         if (trap.name == "P1lost")
         {
             Debug.Log("paint detect");
         }
 
-        if (!life)
+        if (hart <= 0f)
         {
             Cursor.lockState = CursorLockMode.None;
-            life = true;
+          //  hart = 2f;
             StartCoroutine(LoadSceneAfterDelay(lap));
         }
-
     }
 
     public void IncreaseBombCount(float amount)
@@ -211,20 +194,31 @@ public class PlayerInteraction : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        // Check if the collided object has the tag "paint1p2"
+        // Check if the collided object has the tag "trapflame"
         if (other.gameObject.CompareTag("trapflame"))
         {
-            Debug.Log("Burnning.......... ");
-            life = false;
+            Debug.Log("Burning.......... ");
+            StartCoroutine(DecreaseHealthWithDelay(2f)); // Decrease health with a delay
         }
 
-        if (!life)
+        if (hart <= 0f)
         {
             Cursor.lockState = CursorLockMode.None;
-            life = true;
+           // hart = 2f;
             StartCoroutine(LoadSceneAfterDelay(lap));
         }
     }
 
+    private IEnumerator DecreaseHealthWithDelay(float delay)
+    {
+        if (!isLosingHealth) // Check if health is already decreasing
+        {
+            isLosingHealth = true; // Set the flag to true to prevent rapid health loss
+            hart--; // Decrease health
+            yield return new WaitForSeconds(delay);
 
+            Debug.Log("Health decreased. Current health: " + hart);
+            isLosingHealth = false; // Reset the flag after health is decreased
         }
+    }
+}

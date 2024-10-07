@@ -1,27 +1,28 @@
 .play-btn {
-    width: 8%;
-    height: 40%;
-    -unity-font-definition: url('project://database/Assets/Fonts/JazzCreateBubble%20SDF.asset?fileID=11400000&guid=0ddbd96dddcf60041b9a8dff5101457b&type=2#JazzCreateBubble SDF');
-    font-size: 50px;
-    background-color: rgb(56, 202, 82);
-    border-left-color: rgb(12, 1, 1);
-    border-right-color: rgb(12, 1, 1);
-    border-top-color: rgb(12, 1, 1);
-    border-bottom-color: rgb(12, 1, 1);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    color: rgb(250, 250, 250);
-    text-shadow: 1px 1px 0 rgb(0, 0, 0);
-    background-image: url('project://database/Assets/img/ui/play.jpg?fileID=2800000&guid=a2496cfd6e5b13041a4ead2d01a0fe68&type=3#play');
-    -unity-background-image-tint-color: rgba(55, 231, 58, 255);
+    width: 18%;
+    height: 30%;
+    -unity-font-definition: url('project://database/Assets/fragFont/vtc/vtcsupermarkets.asset?fileID=11400000&guid=402a4d89299d30148b8f451883fe3949&type=2#vtcsupermarkets');
+    font-size: 30px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-color: rgba(12, 1, 1, 0);
+    border-right-color: rgba(12, 1, 1, 0);
+    border-top-color: rgba(12, 1, 1, 0);
+    border-bottom-color: rgba(12, 1, 1, 0);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    color: rgb(212, 197, 197);
+    text-shadow: 2px 1px 0 rgb(0, 0, 0);
+    background-image: none;
+    -unity-background-image-tint-color: rgba(96, 54, 54, 0);
+    -unity-text-outline-color: rgba(38, 32, 32, 255);
 }
 
 .play-btn:hover {
     scale: 1.2 1.2;
     transition-duration: 0.5s;
-    -unity-background-image-tint-color: rgba(212, 81, 81, 255);
+    -unity-background-image-tint-color: rgb(212, 81, 81);
     transition-timing-function: ease-out-elastic;
 }
 
