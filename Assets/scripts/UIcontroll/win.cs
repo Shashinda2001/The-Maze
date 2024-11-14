@@ -24,10 +24,15 @@ public class win : MonoBehaviour
 
 
 
-        _continue.RegisterCallback<ClickEvent>(onPlay);
+        _continue.RegisterCallback<ClickEvent>(onContinue);
         _play.RegisterCallback<ClickEvent>(onPlay);
         _exit.RegisterCallback<ClickEvent>(onExist);
 
+    }
+
+    private void onContinue(ClickEvent evt)
+    {
+        SceneManager.LoadScene(4); // Load scene 0
     }
 
     private void onPlay(ClickEvent evt)

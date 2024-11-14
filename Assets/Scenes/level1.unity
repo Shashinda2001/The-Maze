@@ -10033,6 +10033,7 @@ MonoBehaviour:
     m_Bits: 64
   jumpHeight: 8
   lowBoundary: -8
+  stopWalking: 1
   throwPlate: {fileID: 0}
   audioClip: {fileID: 8300000, guid: a2e7d7ed12e569d4ea920ec7f5011a4b, type: 3}
   audioVolume: 0.9

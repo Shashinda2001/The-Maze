@@ -63,7 +63,7 @@ public class topbarControl : MonoBehaviour
         if(iteract !=null )
         {
             hartcount = iteract.hart;
-            Debug.Log(hartcount);
+           // Debug.Log(hartcount);
             if (hartcount == 2f)
             {
                 _hartDisplay2.style.display = DisplayStyle.Flex;

@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float jumpHeight = 3f;
     public float lowBoundary;
+    public bool stopWalking = true;
     
 
     bool life = true;
@@ -48,70 +49,79 @@ public class PlayerMovement : MonoBehaviour
         audioSource.loop = true; // Ensure the audio loops if you want it to continue while holding the key 
         audioSource.volume = audioVolume; // Set the initial volume
         audioSource.pitch = audioPitch; // Set the initial pitch
+
+        stopWalking = true;
     }
 
     void Update()
     {
-        // Check if the CharacterController is enabled before calling Move
-        if (controller != null && controller.enabled)
+        if (stopWalking)
         {
-
-            //ground ekeda balima
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-            //gravity eka set 
-            if(isGrounded && velocity.y < 0)
+            //
+            // Check if the CharacterController is enabled before calling Move
+            if (controller != null && controller.enabled)
             {
-                velocity.y = -2f;
-            }
 
-            //jump
-            if(Input.GetButtonDown("Jump") && isGrounded)
-            {
-                velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
-            }
+                //ground ekeda balima
+                isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-            float x = Input.GetAxis("Horizontal");
-            float z = Input.GetAxis("Vertical");
-
-            Vector3 move = transform.right * x + transform.forward * z;
-
-            controller.Move(move * speed * Time.deltaTime);
-
-            velocity.y -= gravity * Time.deltaTime;
-
-            controller.Move(velocity * Time.deltaTime);
-
-            // Audio handling for movement
-            if (move != Vector3.zero)
-            {
-                if (!audioSource.isPlaying)
+                //gravity eka set 
+                if (isGrounded && velocity.y < 0)
                 {
-                    audioSource.Play();
+                    velocity.y = -2f;
+                }
+
+                //jump
+                if (Input.GetButtonDown("Jump") && isGrounded)
+                {
+                    velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
+                }
+
+                float x = Input.GetAxis("Horizontal");
+                float z = Input.GetAxis("Vertical");
+
+                Vector3 move = transform.right * x + transform.forward * z;
+
+                controller.Move(move * speed * Time.deltaTime);
+
+                velocity.y -= gravity * Time.deltaTime;
+
+                controller.Move(velocity * Time.deltaTime);
+
+                // Audio handling for movement
+                if (move != Vector3.zero)
+                {
+                    if (!audioSource.isPlaying)
+                    {
+                        audioSource.Play();
+                    }
+                }
+                else
+                {
+                    if (audioSource.isPlaying)
+                    {
+                        audioSource.Stop();
+                    }
                 }
             }
             else
             {
-                if (audioSource.isPlaying)
-                {
-                    audioSource.Stop();
-                }
+                Debug.LogWarning("CharacterController is not enabled or not assigned.");
             }
-        }
-        else
-        {
-            Debug.LogWarning("CharacterController is not enabled or not assigned.");
-        }
 
-        if (transform.position.y < lowBoundary)
-        {
-            life = false;
-        }
+            if (transform.position.y < lowBoundary)
+            {
+                life = false;
+            }
 
-        if (!life)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene(1);
+            if (!life)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                SceneManager.LoadScene(1);
+            }
+
+            //
         }
+       
     }
 }

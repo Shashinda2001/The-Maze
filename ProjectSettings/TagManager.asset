@@ -13,6 +13,11 @@ TagManager:
   - paint2p1
   - paint2p2
   - trapflame
+  - controller1
+  - lava
+  - cover
+  - battery
+  - suite
   layers:
   - Default
   - TransparentFX
